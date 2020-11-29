@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .timer-ct {
+      width: 200px;
+      height: 200px;
+      border: 1px solid rgba(0, 0, 0, .2);
+      border-radius: 50%;
+    }
+    .second-ct {
+      position: relative;
+      color: red;
+    }
+    .minute-ct {
+      position: relative;
+      color: black;
+    }
+    .second-ct::before,
+    .minute-ct::before {
+      content: '';
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      width: 100px;
+      height: 1px;
+      color: inherit;
+      background-color: currentColor;
+      transform-origin: 0%;
+      transform: rotate(0deg);
+      animation: rotateAnimate linear infinite;
+    }
+
+    .second-ct::before {
+      animation-duration: 60s;
+    }
+    .minute-ct::before {
+      animation-duration: 3600s;
+    }
+    @keyframes rotateAnimate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="timer-ct">
+    <span class="second-ct"></span>
+    <span class="minute-ct"></span>
+  </div>
+</body>
+</html>
